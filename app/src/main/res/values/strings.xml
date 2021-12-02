@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">User Input</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_surname">Enter Surname</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_date_of_birth">Enter date of birth</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="confirm_password">Confirm password</string>
+</resources>
