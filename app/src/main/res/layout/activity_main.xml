@@ -104,8 +104,23 @@
             android:hint="@string/confirm_password"
             android:textColorHint="@color/white"
             android:layout_marginStart="45dp"
+            android:inputType="textPassword"
             android:textColor="@color/white"/>
     </LinearLayout>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="@string/accept_terms_and_conditions"
+        android:textColor="@color/white"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_gravity="center"
+        android:background="@drawable/circle"
+        android:text="@string/create_account"/>
 
 
 </LinearLayout>
