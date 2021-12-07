@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/dance"
+    android:background="@drawable/ropes"
     tools:context=".MainActivity">
 
 
@@ -31,6 +31,7 @@
         android:layout_marginTop="9dp"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/firstname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -38,6 +39,7 @@
             android:textColorHint="@color/white"
             android:textColor="@color/white"/>
         <EditText
+            android:id="@+id/surname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/enter_surname"
@@ -47,6 +49,7 @@
 
     </LinearLayout>
     <EditText
+        android:id="@+id/emailadress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -75,21 +78,36 @@
             android:src="@drawable/mycalender"/>
 
     </LinearLayout>
-
-    <EditText
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:hint="@string/enter_phone_number"
-        android:inputType="phone"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"/>
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/phonenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:hint="@string/enter_phone_number"
+            android:inputType="phone"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
+
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
+            android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -99,6 +117,7 @@
             android:inputType="textPassword"/>
 
         <EditText
+            android:id="@+id/confirmpassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
@@ -120,6 +139,7 @@
         android:layout_marginTop="18dp"
         android:layout_gravity="center"
         android:background="@drawable/circle"
+        android:onClick="LoginPage"
         android:text="@string/create_account"/>
 
 
