@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.TransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        editpassword.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+        conPassord.setTransformationMethod(new AsteriskPasswordTransformationMethod());
 
         cal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,4 +123,32 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public class AsteriskPasswordTransformationMethod extends PasswordTransformationMethod {
+        @Override
+        public CharSequence getTransformation(CharSequence source, View view) {
+            return new PasswordCharSequence(source);
+        }
+
+        private class PasswordCharSequence implements CharSequence {
+            private CharSequence mSource;
+
+            public PasswordCharSequence(CharSequence source) {
+                mSource = source; // Store char sequence
+            }
+
+            public char charAt(int index) {
+                return '*'; // This is the important part
+            }
+
+            public int length() {
+                return mSource.length(); // Return default
+            }
+
+            public CharSequence subSequence(int start, int end) {
+                return mSource.subSequence(start, end); // Return default
+            }
+        }
+    }
+
 }
