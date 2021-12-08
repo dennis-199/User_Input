@@ -10,16 +10,19 @@ import android.text.method.TransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText date,firstName, surName, emailAdress, editpassword, conPassord, phoneNumber;
+    private EditText firstName, surName, emailAdress, editpassword, conPassord, phoneNumber;
+    private TextView date;
     ImageView cal;
     private int mDate, mMonth, mYear;
     private Spinner spinner;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         phoneNumber = findViewById(R.id.phonenumber);
 
         spinner = (Spinner) findViewById(R.id.spinner1);
+
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -73,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         String sName = surName.getText().toString().trim();
         String cPassword = conPassord.getText().toString().trim();
         String phoneNo = phoneNumber.getText().toString().trim();
+        String Date = date.getText().toString().trim();
+        final CheckBox checkBox = (CheckBox) findViewById(R.id.checkbox_id);
 
         if(fName.isEmpty()) {
             firstName.setError("First name is required ");
@@ -112,15 +118,31 @@ public class MainActivity extends AppCompatActivity {
         if (!cPassword.equals(password)){
             conPassord.setError("Password do not match");
             conPassord.requestFocus();
+            return;
         }
         if (cPassword.isEmpty())  {
             conPassord.setError("Confirm password");
             conPassord.requestFocus();
             return;
         }
+        if(Date.isEmpty()){
+            date.setError("Choose the date");
+            date.requestFocus();
+            return;
+        }
+        if(!checkBox.isChecked()){
+            checkBox.setError("Agree to terms");
+            checkBox.requestFocus();
+            return;
+        }
+        if (checkBox.isChecked()) {
+            checkBox.setChecked(true);
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
 
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
+        }
+
+
 
     }
 
